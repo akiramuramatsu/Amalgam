@@ -58,4 +58,15 @@ public final class FileUtils {
             CloseableUtils.close(destination);
         }
     }
+
+    /**
+     * simulate touch
+     * @param file
+     */
+    public static final void touch(File file) {
+        long timestamp = System.currentTimeMillis();
+        if (!file.exists())
+            new FileOutputStream(file).close();
+        file.setLastModified(timestamp);
+    }
 }
